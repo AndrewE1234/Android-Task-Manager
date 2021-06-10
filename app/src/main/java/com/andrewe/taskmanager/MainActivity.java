@@ -1,30 +1,50 @@
 package com.andrewe.taskmanager;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
 import android.os.Bundle;
+import android.os.RecoverySystem;
 import android.view.View;
 
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.google.android.material.snackbar.Snackbar;
 
 import java.io.Console;
+import java.util.ArrayList;
+import java.util.List;
 
 public class MainActivity extends AppCompatActivity {
-    private String[] tasks;
+    private String[] taskNames = {"This task", "That task", "Say hello"};
+    private List<Task> taskList = new ArrayList<>();
+    private RecyclerView taskRecyclerView;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        taskRecyclerView = findViewById(R.id.task_recycler_view);
+        taskRecyclerView.setLayoutManager(new LinearLayoutManager(this));
+        prepareTaskList();
+
+        TasksRecyclerAdapter adapter = new TasksRecyclerAdapter(taskList);
+        taskRecyclerView.setAdapter(adapter);
 
         FloatingActionButton fab = findViewById(R.id.addTaskFloatingActionButton);
         fab.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Snackbar.make(view, "Here's a Snackbar", Snackbar.LENGTH_LONG)
-                        .setAction("Action", null).show();
+                taskList.add(new Task("New Task!"));
+                adapter.notifyItemInserted(taskList.size() - 1);
             }
         });
+    }
+
+    private void prepareTaskList() {
+        for (String taskName : taskNames) {
+            Task task = new Task(taskName);
+            taskList.add(task);
+        }
     }
 }
