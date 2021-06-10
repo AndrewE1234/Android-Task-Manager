@@ -1,3 +1,4 @@
 <resources>
     <string name="app_name">Task Manager</string>
+    <string name="addButtonDesc">Add new task</string>
 </resources>
