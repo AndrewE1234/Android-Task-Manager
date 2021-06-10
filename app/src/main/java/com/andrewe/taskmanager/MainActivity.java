@@ -11,6 +11,8 @@ import com.google.android.material.snackbar.Snackbar;
 import java.io.Console;
 
 public class MainActivity extends AppCompatActivity {
+    private String[] tasks;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
