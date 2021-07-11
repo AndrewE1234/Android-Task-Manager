@@ -10,12 +10,5 @@ public class TaskListActivity extends Activity {
         super.onCreate(savedInstanceState);
 
         setContentView(R.layout.task_list_item);
-
-        final Button deleteButton = findViewById(R.id.delete_task_button);
-        deleteButton.setOnClickListener(new View.OnClickListener() {
-            public void onClick(View v) {
-                // Code here executes on main thread after user presses button
-            }
-        });
     }
 }
