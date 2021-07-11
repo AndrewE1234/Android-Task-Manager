@@ -1,5 +1,6 @@
 package com.andrewe.taskmanager;
 
+import android.content.Context;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -12,6 +13,7 @@ import androidx.recyclerview.widget.RecyclerView;
 
 public class TasksRecyclerAdapter extends RecyclerView.Adapter<TasksRecyclerAdapter.TaskViewHolder> {
     private List<Task> taskList;
+    private Context context;
 
     public TasksRecyclerAdapter (List<Task> taskList) {
         this.taskList = taskList;
@@ -21,7 +23,6 @@ public class TasksRecyclerAdapter extends RecyclerView.Adapter<TasksRecyclerAdap
     @Override
     public TaskViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
         View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.task_list_item, parent, false);
-
         return new TaskViewHolder(view);
     }
 
@@ -43,5 +44,10 @@ public class TasksRecyclerAdapter extends RecyclerView.Adapter<TasksRecyclerAdap
             super(itemView);
             taskName = itemView.findViewById(R.id.task_name);
         }
+    }
+
+    public void deleteItem(int position) {
+        taskList.remove(position);
+        notifyItemRemoved(position);
     }
 }

@@ -1,9 +1,11 @@
 package com.andrewe.taskmanager;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.recyclerview.widget.ItemTouchHelper;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import android.content.ClipData;
 import android.os.Bundle;
 import android.os.RecoverySystem;
 import android.view.View;
@@ -30,6 +32,9 @@ public class MainActivity extends AppCompatActivity {
 
         TasksRecyclerAdapter adapter = new TasksRecyclerAdapter(taskList);
         taskRecyclerView.setAdapter(adapter);
+
+        ItemTouchHelper itemTouchHelper = new ItemTouchHelper(new SwipeToDeleteItemCallback(adapter));
+        itemTouchHelper.attachToRecyclerView(taskRecyclerView);
 
         FloatingActionButton fab = findViewById(R.id.addTaskFloatingActionButton);
         fab.setOnClickListener(new View.OnClickListener() {
