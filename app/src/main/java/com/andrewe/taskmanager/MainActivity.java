@@ -6,6 +6,7 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import android.content.ClipData;
+import android.content.Intent;
 import android.os.Bundle;
 import android.os.RecoverySystem;
 import android.view.View;
@@ -18,6 +19,8 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class MainActivity extends AppCompatActivity {
+    public static final String EXTRA_MESSAGE = "com.example.TaskManager.MESSAGE";
+
     private String[] taskNames = {"This task", "That task", "Say hello"};
     private List<Task> taskList = new ArrayList<>();
     private RecyclerView taskRecyclerView;
@@ -40,8 +43,13 @@ public class MainActivity extends AppCompatActivity {
         fab.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                taskList.add(new Task("New Task!"));
-                adapter.notifyItemInserted(taskList.size() - 1);
+                // taskList.add(new Task("New Task!"));
+                // adapter.notifyItemInserted(taskList.size() - 1);
+
+                Intent intent = new Intent(MainActivity.this, TaskFormActivity.class);
+                String message = "New Task Entry";
+                intent.putExtra(EXTRA_MESSAGE, message;
+                startActivity(intent);
             }
         });
     }
