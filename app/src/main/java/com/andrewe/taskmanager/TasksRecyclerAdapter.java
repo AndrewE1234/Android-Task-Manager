@@ -29,7 +29,8 @@ public class TasksRecyclerAdapter extends RecyclerView.Adapter<TasksRecyclerAdap
     @Override
     public void onBindViewHolder(@NonNull TaskViewHolder holder, int position) {
         Task task = taskList.get(position);
-        holder.taskName.setText(task.getTaskName());
+        holder.taskName.setText(task.getName());
+        holder.completeDate.setText(task.showCompleteDate());
     }
 
     @Override
@@ -39,10 +40,12 @@ public class TasksRecyclerAdapter extends RecyclerView.Adapter<TasksRecyclerAdap
 
     public static class TaskViewHolder extends RecyclerView.ViewHolder {
         public TextView taskName;
+        public TextView completeDate;
 
         public TaskViewHolder(@NonNull View itemView) {
             super(itemView);
             taskName = itemView.findViewById(R.id.task_name);
+            completeDate = itemView.findViewById(R.id.complete_date);
         }
     }
 
