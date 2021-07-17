@@ -48,7 +48,7 @@ public class MainActivity extends AppCompatActivity {
 
                 Intent intent = new Intent(MainActivity.this, TaskFormActivity.class);
                 String message = "New Task Entry";
-                intent.putExtra(EXTRA_MESSAGE, message;
+                intent.putExtra(EXTRA_MESSAGE, message);
                 startActivity(intent);
             }
         });
