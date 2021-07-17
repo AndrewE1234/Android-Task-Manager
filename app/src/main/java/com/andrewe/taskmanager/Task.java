@@ -1,13 +1,46 @@
 package com.andrewe.taskmanager;
 
-public class Task {
-    private String taskName;
+import java.util.Calendar;
+import java.util.Date;
 
-    public Task(String taskName) {
-        this.taskName = taskName;
+public class Task {
+    private String name;
+    private String description;
+    private Date completeDate;
+    private boolean completed;
+
+    public Task(String name) {
+        this(name, "", Calendar.getInstance().getTime(), false);
     }
 
-    public String getTaskName() {
-        return taskName;
+    public Task(String name, String description, Date completeDate, boolean completed) {
+        this.name = name;
+        this.description = description;
+        this.completeDate = completeDate;
+        this.completed = completed;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public String getDescription() {
+        return description;
+    }
+
+    public Date getCompleteDate() {
+        return completeDate;
+    }
+
+    public boolean getCompleted() {
+        return completed;
+    }
+
+    public String showCompleteDate() {
+        return completeDate.toString();
     }
 }
