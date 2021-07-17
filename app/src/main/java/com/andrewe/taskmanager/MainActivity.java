@@ -19,8 +19,6 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class MainActivity extends AppCompatActivity {
-    public static final String EXTRA_MESSAGE = "com.example.TaskManager.MESSAGE";
-
     private String[] taskNames = {"This task", "That task", "Say hello"};
     private List<Task> taskList = new ArrayList<>();
     private RecyclerView taskRecyclerView;
@@ -47,8 +45,6 @@ public class MainActivity extends AppCompatActivity {
                 // adapter.notifyItemInserted(taskList.size() - 1);
 
                 Intent intent = new Intent(MainActivity.this, TaskFormActivity.class);
-                String message = "New Task Entry";
-                intent.putExtra(EXTRA_MESSAGE, message);
                 startActivity(intent);
             }
         });
