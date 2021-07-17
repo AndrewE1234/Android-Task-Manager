@@ -2,4 +2,7 @@
     <string name="app_name">Task Manager</string>
     <string name="addButtonDesc">Add new task</string>
     <string name="task_view_text">I\'m a task</string>
+    <string name="new_task_text">New Task:</string>
+    <string name="task_name_hint">Task Name</string>
+    <string name="description_hint">Description</string>
 </resources>
