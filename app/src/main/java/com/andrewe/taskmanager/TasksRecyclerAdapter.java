@@ -29,7 +29,7 @@ public class TasksRecyclerAdapter extends RecyclerView.Adapter<TasksRecyclerAdap
     @Override
     public void onBindViewHolder(@NonNull TaskViewHolder holder, int position) {
         Task task = taskList.get(position);
-        holder.taskName.setText(task.getName());
+        holder.taskName.setText(task.getDescription());
         holder.completeDate.setText(task.showCompleteDate());
     }
 
