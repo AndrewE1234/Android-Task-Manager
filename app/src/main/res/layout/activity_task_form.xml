@@ -17,19 +17,10 @@
         app:layout_constraintLeft_toLeftOf="parent" />
 
     <EditText
-        android:id="@+id/name_edit_text"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        app:layout_constraintTop_toBottomOf="@+id/new_task_text"
-        android:hint="@string/task_name_hint"
-        android:inputType="text"
-        android:importantForAutofill="no" />
-
-    <EditText
         android:id="@+id/desc_edit_text"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        app:layout_constraintTop_toBottomOf="@+id/name_edit_text"
+        app:layout_constraintTop_toBottomOf="@+id/new_task_text"
         android:hint="@string/description_hint"
         android:inputType="text"
         android:importantForAutofill="no" />
